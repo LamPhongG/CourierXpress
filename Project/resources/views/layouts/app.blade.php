@@ -15,5 +15,7 @@
     <main class="container mx-auto pt-20">
         @yield('content')
     </main>
+
+    
 </body>
-</html>
+</html> 
