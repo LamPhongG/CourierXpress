@@ -109,21 +109,21 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="text-center">
                     <div class="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-6"></div>
-                    <h3 class="text-xl font-bold mb-2 text-gray-800">Nguyễn Văn A</h3>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">Nguyễn Văn Hợp</h3>
                     <p class="text-orange-600 font-semibold mb-4">CEO & Founder</p>
                     <p class="text-gray-600">15 năm kinh nghiệm trong ngành logistics và công nghệ</p>
                 </div>
 
                 <div class="text-center">
                     <div class="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-6"></div>
-                    <h3 class="text-xl font-bold mb-2 text-gray-800">Trần Thị B</h3>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">Châu Quốc Lâm Phong</h3>
                     <p class="text-orange-600 font-semibold mb-4">CTO</p>
                     <p class="text-gray-600">Chuyên gia công nghệ với 12 năm kinh nghiệm tại Silicon Valley</p>
                 </div>
 
                 <div class="text-center">
                     <div class="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-6"></div>
-                    <h3 class="text-xl font-bold mb-2 text-gray-800">Lê Văn C</h3>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">Hoàng Phúc</h3>
                     <p class="text-orange-600 font-semibold mb-4">COO</p>
                     <p class="text-gray-600">Chuyên gia vận hành với kinh nghiệm quản lý quy mô lớn</p>
                 </div>

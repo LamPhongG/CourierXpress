@@ -41,6 +41,8 @@ Route::get('/demo', function () {
     return view('language-demo');
 })->name('language.demo');
 
+
+
 // Full translation demo page
 Route::get('/full-demo', function () {
     return view('full-translation-demo');

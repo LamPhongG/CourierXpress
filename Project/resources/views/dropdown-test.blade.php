@@ -2,35 +2,40 @@
 
 @section('content')
 <div class="pt-20 min-h-screen bg-gray-50">
-    <!-- Test Page -->
+    <!-- Language Selector -->
+    <div class="text-right p-4">
+        <a href="{{ route('change-language', 'en') }}" class="text-blue-500 hover:underline">English</a> |
+        <a href="{{ route('change-language', 'vi') }}" class="text-blue-500 hover:underline">Tiếng Việt</a> |
+        <a href="{{ route('change-language', 'hi') }}" class="text-blue-500 hover:underline">हिंदी</a>
+    </div>
+
     <div class="py-20">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h1 class="text-5xl font-bold mb-8 text-gray-800">Test Dropdown Menu</h1>
-                <p class="text-xl text-gray-600 mb-8">Header 1 hàng thẳng với đầy đủ dropdown chức năng</p>
+                <h1 class="text-5xl font-bold mb-8 text-gray-800">{{ __('messages.test_dropdown_menu') }}</h1>
+                <p class="text-xl text-gray-600 mb-8">{{ __('messages.header_description') }}</p>
                 
                 <!-- Language Test -->
                 <div class="bg-orange-100 p-6 rounded-lg mb-8">
-                    <h2 class="text-2xl font-bold mb-4 text-orange-800">Language Test</h2>
-                    <p class="text-orange-700 mb-4">Current language: 
-                        @if(Session::get('locale', 'vi') == 'vi')
-                            <strong>Vietnam - Tiếng Việt</strong>
-                        @elseif(Session::get('locale', 'vi') == 'en')
-                            <strong>Vietnam - English</strong>
+                    <h2 class="text-2xl font-bold mb-4 text-orange-800">{{ __('messages.language_test') }}</h2>
+                    <p class="text-orange-700 mb-4">{{ __('messages.current_language') }}: 
+                        @if(App::getLocale() == 'vi')
+                            <strong>{{ __('messages.vietnamese') }}</strong>
+                        @elseif(App::getLocale() == 'en')
+                            <strong>{{ __('messages.english') }}</strong>
                         @else
-                            <strong>Vietnam - हिंदी</strong>
+                            <strong>{{ __('messages.hindi') }}</strong>
                         @endif
                     </p>
-                    <p class="text-orange-600">Click language selector ở góc phải để test!</p>
+                    <p class="text-orange-600">{{ __('messages.language_selector_instruction') }}</p>
                 </div>
             </div>
 
             <!-- Dropdown Test Grid -->
             <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
-                
                 <!-- Delivery Services -->
                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-lg font-bold mb-4 text-gray-800 text-center">{{ __('lalamove.delivery') }}</h3>
+                    <h3 class="text-lg font-bold mb-4 text-gray-800 text-center">{{ __('messages.delivery_services') }}</h3>
                     <div class="space-y-3">
                         <a href="{{ route('dich-vu.giao-hang') }}" class="block p-3 bg-orange-50 rounded hover:bg-orange-100 transition duration-300">
                             <div class="font-semibold text-orange-800">{{ __('messages.delivery_service') }}</div>
