@@ -1,0 +1,54 @@
+# Laravel specific
+/Project/vendor/
+/Project/node_modules/
+/Project/public/hot
+/Project/public/storage
+/Project/storage/*.key
+/Project/.env
+/Project/.env.backup
+/Project/.env.production
+/Project/.phpunit.result.cache
+/Project/docker-compose.override.yml
+/Project/Homestead.json
+/Project/Homestead.yaml
+/Project/auth.json
+/Project/npm-debug.log
+/Project/yarn-error.log
+
+# Laravel storage and cache
+/Project/storage/app/public/*
+/Project/storage/framework/cache/*
+/Project/storage/framework/sessions/*
+/Project/storage/framework/testing/*
+/Project/storage/framework/views/*
+/Project/storage/logs/*
+/Project/bootstrap/cache/*
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+/Project/fix_address_column.php
+/Project/test_agents_api.php
+/Project/check_users_table.php
+/Project/public/test-datatables.html
+/Project/public/admin-test.html
+
+# Database backup files
+*.sql
+*.dump

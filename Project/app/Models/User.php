@@ -20,7 +20,13 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'phone',
         'password',
+        'role',
+        'status',
+        'city',
+        'address',
+        'is_online',
     ];
 
     /**
@@ -43,6 +49,31 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_online' => 'boolean',
         ];
+    }
+
+    /**
+     * Quan hệ với orders làm customer
+     */
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'user_id');
+    }
+
+    /**
+     * Quan hệ với orders làm shipper
+     */
+    public function shipperOrders()
+    {
+        return $this->hasMany(Order::class, 'shipper_id');
+    }
+
+    /**
+     * Quan hệ với orders làm agent
+     */
+    public function agentOrders()
+    {
+        return $this->hasMany(Order::class, 'agent_id');
     }
 }

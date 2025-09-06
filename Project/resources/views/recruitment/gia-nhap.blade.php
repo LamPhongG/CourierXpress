@@ -30,11 +30,11 @@
                     <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Công nghệ</h3>
                     <p class="text-gray-600 text-center mb-6">Phát triển sản phẩm và hệ thống công nghệ tiên tiến</p>
                     <ul class="space-y-2 text-sm text-gray-600 mb-6">
-                        <li>• Software Engineer</li>
-                        <li>• Mobile Developer</li>
-                        <li>• DevOps Engineer</li>
-                        <li>• Data Scientist</li>
-                        <li>• UI/UX Designer</li>
+                        <li>• Kỹ sư phần mềm</li>
+                        <li>• Lập trình viên di động</li>
+                        <li>• Kỹ sư DevOps</li>
+                        <li>• Nhà khoa học dữ liệu</li>
+                        <li>• Nhà thiết kế UI/UX</li>
                     </ul>
                     <button class="w-full bg-orange-600 text-white font-bold py-2 rounded-lg hover:bg-orange-700 transition duration-300">
                         Xem vị trí
@@ -50,11 +50,11 @@
                     <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Vận hành</h3>
                     <p class="text-gray-600 text-center mb-6">Quản lý và tối ưu hóa hoạt động logistics</p>
                     <ul class="space-y-2 text-sm text-gray-600 mb-6">
-                        <li>• Operations Manager</li>
-                        <li>• Supply Chain Specialist</li>
-                        <li>• Warehouse Manager</li>
-                        <li>• Quality Assurance</li>
-                        <li>• Process Improvement</li>
+                        <li>• Quản lý vận hành</li>
+                        <li>• Chuyên viên chuỗi cung ứng</li>
+                        <li>• Quản lý kho</li>
+                        <li>• Đảm bảo chất lượng</li>
+                        <li>• Cải tiến quy trình</li>
                     </ul>
                     <button class="w-full bg-orange-600 text-white font-bold py-2 rounded-lg hover:bg-orange-700 transition duration-300">
                         Xem vị trí
@@ -70,11 +70,11 @@
                     <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Kinh doanh</h3>
                     <p class="text-gray-600 text-center mb-6">Phát triển thị trường và chăm sóc khách hàng</p>
                     <ul class="space-y-2 text-sm text-gray-600 mb-6">
-                        <li>• Sales Manager</li>
-                        <li>• Business Development</li>
-                        <li>• Customer Success</li>
-                        <li>• Marketing Specialist</li>
-                        <li>• Account Manager</li>
+                        <li>• Quản lý bán hàng</li>
+                        <li>• Phát triển kinh doanh</li>
+                        <li>• Chăm sóc khách hàng thành công</li>
+                        <li>• Chuyên viên marketing</li>
+                        <li>• Quản lý tài khoản</li>
                     </ul>
                     <button class="w-full bg-orange-600 text-white font-bold py-2 rounded-lg hover:bg-orange-700 transition duration-300">
                         Xem vị trí

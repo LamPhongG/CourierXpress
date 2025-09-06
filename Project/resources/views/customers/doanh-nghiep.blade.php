@@ -27,13 +27,13 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">E-commerce Logistics</h3>
+                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Dịch vụ giao hàng thương mại điện tử</h3>
                     <p class="text-gray-600 text-center mb-6">Quản lý toàn bộ chuỗi cung ứng cho thương mại điện tử</p>
                     <ul class="space-y-2 text-sm text-gray-600 mb-6">
-                        <li>• Warehousing & Fulfillment</li>
-                        <li>• Last-mile delivery</li>
-                        <li>• Returns management</li>
-                        <li>• Multi-channel integration</li>
+                        <li>• Kho bãi & Hoàn tất đơn hàng</li>
+                        <li>• Giao hàng chặng cuối</li>
+                        <li>• Quản lý đổi trả</li>
+                        <li>• Tích hợp đa kênh</li>
                     </ul>
                     <button class="w-full bg-orange-600 text-white font-bold py-2 rounded-lg hover:bg-orange-700 transition duration-300">
                         Tìm hiểu thêm
@@ -46,13 +46,13 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Supply Chain Management</h3>
+                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Quản lý chuỗi cung ứng</h3>
                     <p class="text-gray-600 text-center mb-6">Quản lý chuỗi cung ứng thông minh và hiệu quả</p>
                     <ul class="space-y-2 text-sm text-gray-600 mb-6">
-                        <li>• Demand planning</li>
-                        <li>• Vendor management</li>
-                        <li>• Inventory optimization</li>
-                        <li>• Analytics & reporting</li>
+                        <li>• Hoạch định nhu cầu</li>
+                        <li>• Quản lý nhà cung cấp</li>
+                        <li>• Tối ưu hóa tồn kho</li>
+                        <li>• Phân tích & báo cáo</li>
                     </ul>
                     <button class="w-full bg-orange-600 text-white font-bold py-2 rounded-lg hover:bg-orange-700 transition duration-300">
                         Tìm hiểu thêm
@@ -65,13 +65,13 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">B2B Distribution</h3>
+                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Phân phối B2B</h3>
                     <p class="text-gray-600 text-center mb-6">Phân phối sản phẩm B2B chuyên nghiệp</p>
                     <ul class="space-y-2 text-sm text-gray-600 mb-6">
-                        <li>• Route optimization</li>
-                        <li>• Bulk delivery</li>
-                        <li>• Scheduled delivery</li>
-                        <li>• Document management</li>
+                        <li>• Tối ưu hóa tuyến đường</li>
+                        <li>• Giao hàng số lượng lớn</li>
+                        <li>• Giao hàng theo lịch hẹn</li>
+                        <li>• Quản lý chứng từ</li>
                     </ul>
                     <button class="w-full bg-orange-600 text-white font-bold py-2 rounded-lg hover:bg-orange-700 transition duration-300">
                         Tìm hiểu thêm
@@ -84,13 +84,13 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Cold Chain Logistics</h3>
+                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Vận chuyển hàng hóa lạnh</h3>
                     <p class="text-gray-600 text-center mb-6">Vận chuyển hàng hóa đặc biệt cần bảo quản lạnh</p>
                     <ul class="space-y-2 text-sm text-gray-600 mb-6">
-                        <li>• Temperature control</li>
-                        <li>• Real-time monitoring</li>
-                        <li>• Compliance management</li>
-                        <li>• Quality assurance</li>
+                        <li>• Kiểm soát nhiệt độ</li>
+                        <li>• Giám sát theo thời gian thực</li>
+                        <li>• Quản lý tuân thủ</li>
+                        <li>• Đảm bảo chất lượng</li>
                     </ul>
                     <button class="w-full bg-orange-600 text-white font-bold py-2 rounded-lg hover:bg-orange-700 transition duration-300">
                         Tìm hiểu thêm
@@ -104,13 +104,13 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Cross-border Logistics</h3>
+                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Vận chuyển qua biên giới</h3>
                     <p class="text-gray-600 text-center mb-6">Vận chuyển quốc tế và thủ tục hải quan</p>
                     <ul class="space-y-2 text-sm text-gray-600 mb-6">
-                        <li>• Customs clearance</li>
-                        <li>• International shipping</li>
-                        <li>• Documentation</li>
-                        <li>• Compliance support</li>
+                        <li>• Thông quan hải quan</li>
+                        <li>• Vận chuyển quốc tế</li>
+                        <li>• Chứng từ, hồ sơ</li>
+                        <li>• Hỗ trợ tuân thủ quy định</li>
                     </ul>
                     <button class="w-full bg-orange-600 text-white font-bold py-2 rounded-lg hover:bg-orange-700 transition duration-300">
                         Tìm hiểu thêm
@@ -123,13 +123,13 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Technology Integration</h3>
+                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Tích hợp công nghệ</h3>
                     <p class="text-gray-600 text-center mb-6">Tích hợp API và hệ thống quản lý</p>
                     <ul class="space-y-2 text-sm text-gray-600 mb-6">
-                        <li>• API integration</li>
-                        <li>• ERP connectivity</li>
-                        <li>• Custom dashboards</li>
-                        <li>• Real-time tracking</li>
+                        <li>• Tích hợp API</li>
+                        <li>• Kết nối ERP</li>
+                        <li>• Bảng điều khiển tùy chỉnh</li>
+                        <li>• Theo dõi theo thời gian thực</li>
                     </ul>
                     <button class="w-full bg-orange-600 text-white font-bold py-2 rounded-lg hover:bg-orange-700 transition duration-300">
                         Tìm hiểu thêm
@@ -152,7 +152,7 @@
                         </svg>
                     </div>
                     <h3 class="text-lg font-bold mb-2 text-gray-800">Bán lẻ</h3>
-                    <p class="text-sm text-gray-600">Fashion, Electronics, FMCG</p>
+                    <p class="text-sm text-gray-600">Thời trang, Điện tử, Tiêu dùng nhanh</p>
                 </div>
 
                 <div class="text-center p-6 bg-gray-50 rounded-lg">
@@ -162,7 +162,7 @@
                         </svg>
                     </div>
                     <h3 class="text-lg font-bold mb-2 text-gray-800">Dược phẩm</h3>
-                    <p class="text-sm text-gray-600">Medicine, Healthcare</p>
+                    <p class="text-sm text-gray-600">Dược phẩm, Chăm sóc sức khỏe</p>
                 </div>
 
                 <div class="text-center p-6 bg-gray-50 rounded-lg">
@@ -172,7 +172,7 @@
                         </svg>
                     </div>
                     <h3 class="text-lg font-bold mb-2 text-gray-800">Thực phẩm</h3>
-                    <p class="text-sm text-gray-600">F&B, Fresh produce</p>
+                    <p class="text-sm text-gray-600">Thực phẩm & Đồ uống, Thực phẩm tươi sống</p>
                 </div>
 
                 <div class="text-center p-6 bg-gray-50 rounded-lg">
@@ -182,7 +182,7 @@
                         </svg>
                     </div>
                     <h3 class="text-lg font-bold mb-2 text-gray-800">Sản xuất</h3>
-                    <p class="text-sm text-gray-600">Manufacturing, Industrial</p>
+                    <p class="text-sm text-gray-600">Sản xuất, Công nghiệp</p>
                 </div>
             </div>
         </div>
@@ -202,8 +202,8 @@
                         "CourierXpress đã giúp chúng tôi giảm 40% chi phí logistics và cải thiện thời gian giao hàng đáng kể."
                     </blockquote>
                     <div class="text-center">
-                        <p class="font-bold text-gray-800">Nguyễn Văn A</p>
-                        <p class="text-sm text-gray-600">CEO, ABC Corp</p>
+                        <p class="font-bold text-gray-800">Nguyễn Văn Hợp</p>
+                        <p class="text-sm text-gray-600">Tổng Giám đốc, Công ty CourierXpress</p>
                     </div>
                 </div>
 
@@ -215,8 +215,8 @@
                         "Hệ thống tracking real-time và báo cáo chi tiết giúp chúng tôi quản lý hiệu quả hơn."
                     </blockquote>
                     <div class="text-center">
-                        <p class="font-bold text-gray-800">Trần Thị B</p>
-                        <p class="text-sm text-gray-600">Operations Manager, XYZ Ltd</p>
+                        <p class="font-bold text-gray-800">Châu Quốc Lâm Phong</p>
+                        <p class="text-sm text-gray-600">Quản lý vận hành, Công ty TNHH CourierXpress</p>
                     </div>
                 </div>
 
@@ -228,8 +228,8 @@
                         "Dịch vụ chuyên nghiệp, đội ngũ support tận tâm. Chúng tôi rất hài lòng với CourierXpress."
                     </blockquote>
                     <div class="text-center">
-                        <p class="font-bold text-gray-800">Lê Văn C</p>
-                        <p class="text-sm text-gray-600">Logistics Director, DEF Co</p>
+                        <p class="font-bold text-gray-800">Hoàng Phúc</p>
+                        <p class="text-sm text-gray-600">Giám đốc logistics, Công ty CourierXpress</p>
                     </div>
                 </div>
             </div>
