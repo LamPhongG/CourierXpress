@@ -1,0 +1,11 @@
+.m-xs { margin: var(--space-xs); }
+.m-sm { margin: var(--space-sm); }
+.m-md { margin: var(--space-md); }
+.p-xs { padding: var(--space-xs); }
+.p-sm { padding: var(--space-sm); }
+.p-md { padding: var(--space-md); }
+.text-orange { color: var(--amazon-orange); }
+.bg-navy { background: var(--amazon-navy); }
+.font-sm { font-size: var(--font-sm); }
+.font-md { font-size: var(--font-md); }
+.font-bold { font-weight: var(--font-bold); }

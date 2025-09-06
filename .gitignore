@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Laravel specific
 /Project/vendor/
 /Project/node_modules/
@@ -25,12 +26,35 @@
 /Project/bootstrap/cache/*
 
 # IDE files
+=======
+# Laravel Backend
+/courier-xpress-backend/vendor/
+/courier-xpress-backend/node_modules/
+/courier-xpress-backend/public/hot
+/courier-xpress-backend/public/storage
+/courier-xpress-backend/storage/*.key
+/courier-xpress-backend/.env
+/courier-xpress-backend/.env.backup
+/courier-xpress-backend/.env.production
+/courier-xpress-backend/.phpunit.result.cache
+/courier-xpress-backend/Homestead.json
+/courier-xpress-backend/Homestead.yaml
+/courier-xpress-backend/auth.json
+/courier-xpress-backend/npm-debug.log
+/courier-xpress-backend/yarn-error.log
+/courier-xpress-backend/.phpactor.json
+/courier-xpress-backend/.DS_Store
+/courier-xpress-backend/Thumbs.db
+
+# IDE
+>>>>>>> 874930c9d21c096626222705be2e94601f7d47bb
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
+<<<<<<< HEAD
 # OS generated files
 .DS_Store
 .DS_Store?
@@ -52,3 +76,11 @@ Thumbs.db
 # Database backup files
 *.sql
 *.dump
+=======
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+>>>>>>> 874930c9d21c096626222705be2e94601f7d47bb
