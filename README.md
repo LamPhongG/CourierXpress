@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CourierXpress - Hệ thống quản lý vận chuyển
 
 ![Laravel](https://img.shields.io/badge/Laravel-12.x-red.svg)
@@ -194,3 +195,6 @@ Dự án này được phát hành dưới [MIT license](https://opensource.org/
 <p align="center">
   Made with ❤️ by CourierXpress Team
 </p>
+=======
+# CourierXpress
+>>>>>>> b5636a2a035317d77f4b532c951320816b4121f4
