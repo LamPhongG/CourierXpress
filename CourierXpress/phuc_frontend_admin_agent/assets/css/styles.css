@@ -1,0 +1,4 @@
+/* Additional global styles */
+body { line-height: 1.6; }
+a { color: var(--amazon-blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
