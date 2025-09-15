@@ -18,8 +18,46 @@ class TrackingController extends Controller
     }
 
     /**
-     * Track an order by tracking number
+     * Check tracking by tracking ID (simplified for homepage)
      */
+    public function checkTracking(Request $request)
+    {
+        $request->validate([
+            'tracking_id' => 'required|string|min:3'
+        ]);
+
+        $trackingId = $request->tracking_id;
+        
+        // Find order by tracking number
+        $order = Order::where('tracking_number', $trackingId)
+                     ->with(['user', 'shipper', 'agent'])
+                     ->first();
+
+        if (!$order) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Không tìm thấy đơn hàng với mã vận đơn này'
+            ]);
+        }
+
+        // Return simplified order data for homepage
+        return response()->json([
+            'success' => true,
+            'message' => 'Tìm thấy đơn hàng!',
+            'order' => [
+                'tracking_number' => $order->tracking_number,
+                'status' => $order->status,
+                'pickup_address' => $order->pickup_address,
+                'pickup_city' => $order->pickup_city,
+                'delivery_address' => $order->delivery_address,
+                'delivery_city' => $order->delivery_city,
+                'created_at' => $order->created_at->format('Y-m-d H:i:s'),
+                'package_type' => $order->package_type,
+                'weight' => $order->weight,
+                'shipping_fee' => $order->shipping_fee
+            ]
+        ]);
+    }
     public function track(Request $request)
     {
         $request->validate([
