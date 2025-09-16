@@ -29,14 +29,14 @@ class RegisteredUserController extends Controller
             'phone' => ['required', 'string', 'max:20', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ], [
-            'name.required' => 'Vui lòng nhập họ tên.',
-            'email.required' => 'Vui lòng nhập email.',
-            'email.email' => 'Email không đúng định dạng.',
-            'email.unique' => 'Email này đã được sử dụng.',
-            'phone.required' => 'Vui lòng nhập số điện thoại.',
-            'phone.unique' => 'Số điện thoại này đã được sử dụng.',
-            'password.required' => 'Vui lòng nhập mật khẩu.',
-            'password.confirmed' => 'Xác nhận mật khẩu không khớp.',
+            'name.required' => __('auth.name_required'),
+            'email.required' => __('auth.email_required'),
+            'email.email' => __('auth.email_invalid'),
+            'email.unique' => __('auth.email_unique'),
+            'phone.required' => __('auth.phone_required'),
+            'phone.unique' => __('auth.phone_unique'),
+            'password.required' => __('auth.password_required'),
+            'password.confirmed' => __('auth.password_confirmed'),
         ]);
 
         $user = User::create([
@@ -50,6 +50,6 @@ class RegisteredUserController extends Controller
 
         auth()->login($user);
 
-        return redirect()->route('user.dashboard')->with('success', 'Đăng ký thành công!');
+        return redirect()->route('user.dashboard')->with('success', __('auth.register_success'));
     }
 }

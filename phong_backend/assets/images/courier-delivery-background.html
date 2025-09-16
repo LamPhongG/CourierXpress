@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourierXpress - Delivery Background Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .background-preview {
+            width: 100%;
+            height: 400px;
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Background mô phỏng ảnh giao hàng */
+        .delivery-bg {
+            background: 
+                /* Overlay tối để text dễ đọc */
+                linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.6)),
+                /* Gradient mô phỏng ánh sáng mặt trời */
+                radial-gradient(circle at 70% 30%, rgba(255,255,255,0.3) 0%, transparent 50%),
+                /* Gradient mô phỏng bầu trời */
+                linear-gradient(180deg, #87CEEB 0%, #98D8E8 30%, #B0E0E6 60%, #E0F6FF 100%),
+                /* Gradient mô phỏng đường phố */
+                linear-gradient(45deg, #696969 0%, #808080 25%, #A9A9A9 50%, #C0C0C0 75%, #D3D3D3 100%);
+            background-size: 100% 100%, 200% 200%, 100% 100%, 100% 100%;
+            animation: deliveryAnimation 15s ease-in-out infinite;
+        }
+        
+        /* Thêm hiệu ứng chuyển động */
+        @keyframes deliveryAnimation {
+            0% { 
+                background-position: 0% 50%, 0% 0%, 0% 0%, 0% 0%;
+                filter: brightness(1);
+            }
+            25% { 
+                background-position: 25% 50%, 25% 25%, 0% 0%, 0% 0%;
+                filter: brightness(1.1);
+            }
+            50% { 
+                background-position: 50% 50%, 50% 50%, 0% 0%, 0% 0%;
+                filter: brightness(1.2);
+            }
+            75% { 
+                background-position: 75% 50%, 75% 75%, 0% 0%, 0% 0%;
+                filter: brightness(1.1);
+            }
+            100% { 
+                background-position: 100% 50%, 100% 100%, 0% 0%, 0% 0%;
+                filter: brightness(1);
+            }
+        }
+        
+        /* Thêm các element mô phỏng */
+        .delivery-bg::before {
+            content: '🚚';
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            font-size: 60px;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .delivery-bg::after {
+            content: '📦';
+            position: absolute;
+            top: 30%;
+            right: 15%;
+            font-size: 40px;
+            animation: float 3s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            margin: 20px 0;
+            overflow-x: auto;
+            border-left: 4px solid #ff9900;
+        }
+        
+        h1 {
+            color: #232f3e;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #ff9900;
+            margin-top: 40px;
+            border-bottom: 2px solid #ff9900;
+            padding-bottom: 10px;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #ff9900, #ff6600);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(255, 153, 0, 0.3);
+        }
+        
+        .steps {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #232f3e;
+        }
+        
+        .steps ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .steps li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚚 CourierXpress - Delivery Background</h1>
+        
+        <div class="info-box">
+            <h3>📸 Ảnh giao hàng mô tả:</h3>
+            <p>Nhân viên giao hàng CourierXpress (áo cam) đang trao gói hàng cho khách hàng nữ trên đường phố. Cảnh tươi sáng, chuyên nghiệp với logo "Your Delivery, Our Priority".</p>
+        </div>
+        
+        <h2>🎨 Background Preview</h2>
+        <div class="background-preview delivery-bg">
+            <div style="text-align: center;">
+                <div style="font-size: 48px; margin-bottom: 20px;">🚚 CourierXpress</div>
+                <div style="font-size: 18px; opacity: 0.9;">Your Delivery, Our Priority</div>
+            </div>
+        </div>
+        
+        <h2>💻 CSS Code để sử dụng</h2>
+        <div class="code-block">
+/* Background cho trang chủ với ảnh giao hàng */
+body {
+    background: 
+        /* Overlay để text dễ đọc */
+        linear-gradient(135deg, rgba(35, 47, 62, 0.8), rgba(19, 25, 33, 0.9)),
+        /* Ảnh giao hàng thật */
+        url('../images/courier-delivery.jpg') center/cover no-repeat fixed;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Hoặc sử dụng gradient mô phỏng nếu chưa có ảnh */
+.hero {
+    background: 
+        linear-gradient(135deg, rgba(255, 153, 0, 0.1), rgba(35, 47, 62, 0.1)),
+        /* Gradient mô phỏng ảnh giao hàng */
+        radial-gradient(circle at 70% 30%, rgba(255,255,255,0.3) 0%, transparent 50%),
+        linear-gradient(180deg, #87CEEB 0%, #98D8E8 30%, #B0E0E6 60%, #E0F6FF 100%),
+        linear-gradient(45deg, #696969 0%, #808080 25%, #A9A9A9 50%, #C0C0C0 75%, #D3D3D3 100%);
+    background-size: 100% 100%, 200% 200%, 100% 100%, 100% 100%;
+    animation: deliveryAnimation 15s ease-in-out infinite;
+}
+
+@keyframes deliveryAnimation {
+    0% { 
+        background-position: 0% 50%, 0% 0%, 0% 0%, 0% 0%;
+        filter: brightness(1);
+    }
+    50% { 
+        background-position: 50% 50%, 50% 50%, 0% 0%, 0% 0%;
+        filter: brightness(1.2);
+    }
+    100% { 
+        background-position: 100% 50%, 100% 100%, 0% 0%, 0% 0%;
+        filter: brightness(1);
+    }
+}
+        </div>
+        
+        <h2>📋 Hướng dẫn thêm ảnh thật</h2>
+        <div class="steps">
+            <ol>
+                <li><strong>Tải ảnh về:</strong> Lưu ảnh giao hàng vào thư mục <code>phong_backend/assets/images/</code></li>
+                <li><strong>Đặt tên file:</strong> Đặt tên là <code>courier-delivery.jpg</code></li>
+                <li><strong>Cập nhật CSS:</strong> Thay đổi background trong file CSS</li>
+                <li><strong>Test:</strong> Mở trang web để xem kết quả</li>
+            </ol>
+        </div>
+        
+        <h2>🎯 Tối ưu hiển thị</h2>
+        <div class="code-block">
+/* Tối ưu cho mobile */
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll; /* Tắt fixed cho mobile */
+        background-size: cover;
+    }
+}
+
+/* Tối ưu performance */
+.hero {
+    will-change: background-position;
+    transform: translateZ(0); /* Hardware acceleration */
+}
+
+/* Fallback cho trình duyệt cũ */
+@supports not (background-attachment: fixed) {
+    body {
+        background-attachment: scroll;
+    }
+}
+        </div>
+        
+        <div class="info-box">
+            <h3>✨ Tính năng đặc biệt:</h3>
+            <ul>
+                <li>🎨 Gradient animation mô phỏng ánh sáng mặt trời</li>
+                <li>🚚 Hiệu ứng floating cho icon giao hàng</li>
+                <li>📱 Responsive design cho mọi thiết bị</li>
+                <li>⚡ Hardware acceleration cho performance tốt</li>
+                <li>🎭 Overlay tối để text dễ đọc</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

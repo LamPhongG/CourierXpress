@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourierXpress - Test Background</title>
+    <link rel="stylesheet" href="assets/css/amazon-design-system.css">
+    <link rel="stylesheet" href="assets/css/utils.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header class="amazon-header">
+        <div class="header-top">
+            <div class="logo">🚚 CourierXpress</div>
+            <div class="header-nav">
+                <a href="#home">Trang chủ</a>
+                <a href="#tracking">Tra cứu</a>
+                <a href="#login">Đăng nhập</a>
+            </div>
+        </div>
+        <nav class="header-nav-main nav-menu">
+            <a href="#home">Trang chủ</a>
+            <a href="#tracking">Tra cứu</a>
+            <a href="#login">Đăng nhập</a>
+            <a href="#register">Đăng ký</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="banner card">
+                🚀 Giao hàng siêu tốc với CourierXpress Prime!
+                <br>
+                <small style="font-size: 14px; opacity: 0.9;">Your Delivery, Our Priority</small>
+            </div>
+            <div class="quick-actions">
+                <a href="#tracking" class="button-primary">📦 Tra cứu đơn hàng</a>
+                <a href="#login" class="button-secondary">🔐 Đăng nhập</a>
+            </div>
+        </section>
+
+        <section class="services grid">
+            <div class="service-card card">
+                <h3>🚚 Giao hàng tiêu chuẩn</h3>
+                <p>Giá: 25,000 VNĐ</p>
+                <div class="ratings">★★★★☆ (4.5)</div>
+                <a href="#login" class="button-primary">Đăng nhập để sử dụng</a>
+            </div>
+            
+            <div class="service-card card">
+                <h3>⚡ Giao hàng nhanh</h3>
+                <p>Giá: 35,000 VNĐ</p>
+                <div class="ratings">★★★★★ (4.8)</div>
+                <a href="#login" class="button-primary">Đăng nhập để sử dụng</a>
+            </div>
+            
+            <div class="service-card card">
+                <h3>🏃 Giao hàng siêu tốc</h3>
+                <p>Giá: 50,000 VNĐ</p>
+                <div class="ratings">★★★★★ (4.9)</div>
+                <a href="#login" class="button-primary">Đăng nhập để sử dụng</a>
+            </div>
+            
+            <div class="service-card card">
+                <h3>🌙 Giao hàng qua đêm</h3>
+                <p>Giá: 40,000 VNĐ</p>
+                <div class="ratings">★★★★☆ (4.6)</div>
+                <a href="#login" class="button-primary">Đăng nhập để sử dụng</a>
+            </div>
+        </section>
+
+        <!-- Thông tin về background -->
+        <section class="alert alert-info" style="margin: 20px;">
+            <h3>🎨 Background Information</h3>
+            <p><strong>Background hiện tại:</strong> CSS Gradient mô phỏng ảnh giao hàng</p>
+            <p><strong>Hiệu ứng:</strong> Animation mô phỏng ánh sáng mặt trời và các element giao hàng</p>
+            <p><strong>Elements mô phỏng:</strong></p>
+            <ul>
+                <li>🔶 Hình tròn cam - Nhân viên giao hàng</li>
+                <li>⚪ Hình tròn trắng - Khách hàng</li>
+                <li>📦 Hình vuông nâu - Gói hàng</li>
+                <li>🛣️ Đường kẻ xám - Đường phố</li>
+            </ul>
+            <p><strong>Animation:</strong> 20 giây lặp lại với hiệu ứng brightness và hue-rotate</p>
+        </section>
+
+        <section class="tracking-container">
+            <h2 class="text-center mb-4">📋 Tra cứu đơn hàng</h2>
+            <div class="tracking-form">
+                <div class="form-group">
+                    <label class="form-label">Mã đơn hàng:</label>
+                    <input type="text" class="tracking-input" placeholder="Nhập mã đơn hàng của bạn...">
+                </div>
+                <button class="button-primary w-full">🔍 Tra cứu ngay</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CourierXpress. Tất cả quyền được bảo lưu.</p>
+        <p>🚚 Giao hàng nhanh chóng, an toàn và tin cậy</p>
+        <p><small>Background: CSS Gradient mô phỏng ảnh giao hàng với animation</small></p>
+    </footer>
+
+    <script>
+        // Thêm hiệu ứng tương tác
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚚 CourierXpress Background Test Page Loaded');
+            console.log('🎨 Background: CSS Gradient với animation');
+            console.log('✨ Elements: Mô phỏng nhân viên, khách hàng, gói hàng');
+            
+            // Hiệu ứng hover cho các card
+            const cards = document.querySelectorAll('.card, .service-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Hiệu ứng click cho buttons
+            const buttons = document.querySelectorAll('.button-primary, .button-secondary');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('🔘 Button clicked:', this.textContent);
+                });
+            });
+        });
+    </script>
+
+    <style>
+        /* Thêm một số style bổ sung cho test */
+        .alert {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .alert h3 {
+            color: var(--amazon-blue);
+            margin-bottom: 15px;
+        }
+        
+        .alert ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .alert li {
+            margin: 5px 0;
+        }
+        
+        /* Debug info */
+        .debug-info {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 9999;
+        }
+    </style>
+
+    <!-- Debug info -->
+    <div class="debug-info">
+        <div>🎨 Background: CSS Gradient</div>
+        <div>✨ Animation: 20s loop</div>
+        <div>🚚 Elements: Mô phỏng</div>
+    </div>
+</body>
+</html>

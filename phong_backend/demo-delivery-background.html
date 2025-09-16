@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourierXpress - Demo Delivery Background</title>
+    <link rel="stylesheet" href="assets/css/amazon-design-system.css">
+    <link rel="stylesheet" href="assets/css/utils.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header class="amazon-header">
+        <div class="header-top">
+            <div class="logo">🚚 CourierXpress</div>
+            <div class="header-nav">
+                <a href="#home">Trang chủ</a>
+                <a href="#tracking">Tra cứu</a>
+                <a href="#login">Đăng nhập</a>
+            </div>
+        </div>
+        <nav class="header-nav-main nav-menu">
+            <a href="#home">Trang chủ</a>
+            <a href="#tracking">Tra cứu</a>
+            <a href="#login">Đăng nhập</a>
+            <a href="#register">Đăng ký</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="banner card">
+                🚀 Giao hàng siêu tốc với CourierXpress Prime!
+                <br>
+                <small style="font-size: 14px; opacity: 0.9;">Your Delivery, Our Priority</small>
+            </div>
+            <div class="quick-actions">
+                <a href="#tracking" class="button-primary">📦 Tra cứu đơn hàng</a>
+                <a href="#login" class="button-secondary">🔐 Đăng nhập</a>
+            </div>
+        </section>
+
+        <section class="services grid">
+            <div class="service-card card">
+                <h3>🚚 Giao hàng tiêu chuẩn</h3>
+                <p>Giá: 25,000 VNĐ</p>
+                <div class="ratings">★★★★☆ (4.5)</div>
+                <a href="#login" class="button-primary">Đăng nhập để sử dụng</a>
+            </div>
+            
+            <div class="service-card card">
+                <h3>⚡ Giao hàng nhanh</h3>
+                <p>Giá: 35,000 VNĐ</p>
+                <div class="ratings">★★★★★ (4.8)</div>
+                <a href="#login" class="button-primary">Đăng nhập để sử dụng</a>
+            </div>
+            
+            <div class="service-card card">
+                <h3>🏃 Giao hàng siêu tốc</h3>
+                <p>Giá: 50,000 VNĐ</p>
+                <div class="ratings">★★★★★ (4.9)</div>
+                <a href="#login" class="button-primary">Đăng nhập để sử dụng</a>
+            </div>
+            
+            <div class="service-card card">
+                <h3>🌙 Giao hàng qua đêm</h3>
+                <p>Giá: 40,000 VNĐ</p>
+                <div class="ratings">★★★★☆ (4.6)</div>
+                <a href="#login" class="button-primary">Đăng nhập để sử dụng</a>
+            </div>
+        </section>
+
+        <section class="tracking-container">
+            <h2 class="text-center mb-4">📋 Tra cứu đơn hàng</h2>
+            <div class="tracking-form">
+                <div class="form-group">
+                    <label class="form-label">Mã đơn hàng:</label>
+                    <input type="text" class="tracking-input" placeholder="Nhập mã đơn hàng của bạn...">
+                </div>
+                <button class="button-primary w-full">🔍 Tra cứu ngay</button>
+            </div>
+        </section>
+
+        <section class="dashboard-container">
+            <h2 class="text-center mb-4">📊 Thống kê nhanh</h2>
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3>📦 Đơn hàng hôm nay</h3>
+                    <div class="number">1,234</div>
+                    <p>+12% so với hôm qua</p>
+                </div>
+                <div class="dashboard-card">
+                    <h3>🚚 Đang giao hàng</h3>
+                    <div class="number">567</div>
+                    <p>Trên đường vận chuyển</p>
+                </div>
+                <div class="dashboard-card">
+                    <h3>✅ Đã giao thành công</h3>
+                    <div class="number">8,901</div>
+                    <p>Trong tháng này</p>
+                </div>
+                <div class="dashboard-card">
+                    <h3>⭐ Đánh giá trung bình</h3>
+                    <div class="number">4.8</div>
+                    <p>Từ khách hàng</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Thông tin về background -->
+        <section class="alert alert-info" style="margin: 20px;">
+            <h3>🎨 Background Information</h3>
+            <p><strong>Ảnh giao hàng:</strong> Nhân viên CourierXpress (áo cam) đang trao gói hàng cho khách hàng nữ trên đường phố.</p>
+            <p><strong>Hiệu ứng:</strong> Gradient animation mô phỏng ánh sáng mặt trời, floating icons, và backdrop blur.</p>
+            <p><strong>Responsive:</strong> Tối ưu cho mọi thiết bị với fallback cho trình duyệt cũ.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CourierXpress. Tất cả quyền được bảo lưu.</p>
+        <p>🚚 Giao hàng nhanh chóng, an toàn và tin cậy</p>
+        <p><small>Background: Ảnh giao hàng với hiệu ứng gradient animation</small></p>
+    </footer>
+
+    <script>
+        // Thêm hiệu ứng tương tác
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hiệu ứng hover cho các card
+            const cards = document.querySelectorAll('.card, .service-card, .dashboard-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Hiệu ứng click cho buttons
+            const buttons = document.querySelectorAll('.button-primary, .button-secondary');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Tạo hiệu ứng ripple
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.classList.add('ripple');
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+
+            // Thêm hiệu ứng typing cho banner
+            const banner = document.querySelector('.banner');
+            if (banner) {
+                const text = banner.innerHTML;
+                banner.innerHTML = '';
+                let i = 0;
+                
+                function typeWriter() {
+                    if (i < text.length) {
+                        banner.innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 50);
+                    }
+                }
+                
+                setTimeout(typeWriter, 1000);
+            }
+        });
+    </script>
+
+    <style>
+        /* Hiệu ứng ripple cho buttons */
+        .button-primary, .button-secondary {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            pointer-events: none;
+        }
+        
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        /* Hiệu ứng loading cho form */
+        .tracking-input:focus {
+            animation: input-focus 0.3s ease;
+        }
+        
+        @keyframes input-focus {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        /* Thêm hiệu ứng pulse cho logo */
+        .logo {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+    </style>
+</body>
+</html>

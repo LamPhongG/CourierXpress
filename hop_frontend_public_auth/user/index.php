@@ -1,9 +1,9 @@
 <?php
-require_once '../includes/config.php';
-require_once '../includes/db.php';
-require_once '../includes/functions.php';
+require_once '../phong_backend/includes/config.php';
+require_once '../phong_backend/includes/db.php';
+require_once '../phong_backend/includes/functions.php';
 $page_title = 'Trang chủ';
-require_once '../includes/templates/header.php';
+require_once '../phong_backend/includes/templates/header.php';
 
 $services = getServices(8);
 ?>
@@ -29,4 +29,4 @@ $services = getServices(8);
 
 
 
-<?php require_once '../includes/templates/footer.php'; ?>
+<?php require_once '../phong_backend/includes/templates/footer.php'; ?>

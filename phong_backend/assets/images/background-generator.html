@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourierXpress Background Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .background-preview {
+            width: 100%;
+            height: 200px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .courier-bg {
+            background: linear-gradient(135deg, 
+                rgba(35, 47, 62, 0.9), 
+                rgba(19, 25, 33, 0.9)),
+                linear-gradient(45deg, 
+                #ff9900 0%, 
+                #ff6600 25%, 
+                #232f3e 50%, 
+                #131921 75%, 
+                #ff9900 100%);
+            background-size: 100% 100%, 200% 200%;
+            animation: gradientShift 10s ease infinite;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, 
+                rgba(255, 153, 0, 0.1), 
+                rgba(35, 47, 62, 0.1)),
+                radial-gradient(circle at 30% 70%, #ff9900 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, #232f3e 0%, transparent 50%),
+                linear-gradient(45deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .auth-bg {
+            background: linear-gradient(135deg, 
+                rgba(35, 47, 62, 0.9), 
+                rgba(19, 25, 33, 0.9)),
+                radial-gradient(circle at 20% 80%, rgba(255, 153, 0, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(35, 47, 62, 0.3) 0%, transparent 50%);
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%, 0% 50%; }
+            50% { background-position: 100% 50%, 100% 50%; }
+            100% { background-position: 0% 50%, 0% 50%; }
+        }
+        
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        
+        h1 {
+            color: #232f3e;
+            text-align: center;
+        }
+        
+        h2 {
+            color: #ff9900;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚚 CourierXpress Background Generator</h1>
+        
+        <h2>1. Main Background (courier-background.jpg)</h2>
+        <div class="background-preview courier-bg">
+            Main Website Background
+        </div>
+        <div class="code-block">
+background: linear-gradient(135deg, 
+    rgba(35, 47, 62, 0.9), 
+    rgba(19, 25, 33, 0.9)),
+    linear-gradient(45deg, 
+    #ff9900 0%, 
+    #ff6600 25%, 
+    #232f3e 50%, 
+    #131921 75%, 
+    #ff9900 100%);
+background-size: 100% 100%, 200% 200%;
+animation: gradientShift 10s ease infinite;
+        </div>
+        
+        <h2>2. Hero Section Background (hero-background.jpg)</h2>
+        <div class="background-preview hero-bg">
+            Hero Section Background
+        </div>
+        <div class="code-block">
+background: linear-gradient(135deg, 
+    rgba(255, 153, 0, 0.1), 
+    rgba(35, 47, 62, 0.1)),
+    radial-gradient(circle at 30% 70%, #ff9900 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, #232f3e 0%, transparent 50%),
+    linear-gradient(45deg, #f8f9fa 0%, #e9ecef 100%);
+        </div>
+        
+        <h2>3. Auth Pages Background (auth-background.jpg)</h2>
+        <div class="background-preview auth-bg">
+            Login/Register Background
+        </div>
+        <div class="code-block">
+background: linear-gradient(135deg, 
+    rgba(35, 47, 62, 0.9), 
+    rgba(19, 25, 33, 0.9)),
+    radial-gradient(circle at 20% 80%, rgba(255, 153, 0, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(35, 47, 62, 0.3) 0%, transparent 50%);
+        </div>
+        
+        <h2>📝 Hướng dẫn sử dụng:</h2>
+        <ol>
+            <li>Các background này đã được tích hợp vào CSS của bạn</li>
+            <li>Bạn có thể thay thế bằng ảnh thật bằng cách thay đổi URL trong CSS</li>
+            <li>Tất cả background đều có hiệu ứng gradient và animation đẹp mắt</li>
+            <li>Responsive và tương thích với mọi thiết bị</li>
+        </ol>
+        
+        <h2>🎨 Màu sắc chính:</h2>
+        <ul>
+            <li><strong>Amazon Orange:</strong> #ff9900</li>
+            <li><strong>Amazon Blue:</strong> #232f3e</li>
+            <li><strong>Amazon Dark Blue:</strong> #131921</li>
+            <li><strong>Light Gray:</strong> #f3f3f3</li>
+        </ul>
+    </div>
+</body>
+</html>
+

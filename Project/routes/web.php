@@ -205,6 +205,33 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
 // ===== LANGUAGE ROUTES =====
 Route::get('/language/{locale}', [LanguageController::class, 'changeLanguage'])->name('language.change');
 
+// Test route để debug
+Route::get('/test-password-route', function () {
+    return 'Password route test - OK!';
+})->name('test.password');
+
+// Language demo route
+Route::get('/auth-language-demo', function () {
+    return view('auth-language-demo');
+})->name('auth.language.demo');
+
+// Test language switching
+Route::get('/test-language', function () {
+    $currentLocale = Session::get('locale', 'vi');
+    return response()->json([
+        'current_locale' => $currentLocale,
+        'app_locale' => App::getLocale(),
+        'session_data' => Session::all(),
+        'test_vi' => __('auth.login_title'),
+        'test_en' => __('auth.login_title', [], 'en')
+    ]);
+})->name('test.language');
+
+// Language test page
+Route::get('/language-test', function () {
+    return view('language-test');
+})->name('language.test');
+
 // ===== PAGE ROUTES =====
 // Service routes
 Route::prefix('dich-vu')->name('dich-vu.')->group(function () {
