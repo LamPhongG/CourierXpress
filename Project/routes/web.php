@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\PageController;
@@ -202,6 +203,17 @@ Route::middleware('guest')->group(function () {
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth')
     ->name('logout');
+
+// Test logout route for debugging
+Route::get('/test-logout', function () {
+    if (auth()->check()) {
+        Auth::logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+        return redirect('/')->with('success', 'Test logout successful!');
+    }
+    return redirect('/')->with('error', 'Not logged in');
+});
 
 // ===== LANGUAGE ROUTES =====
 Route::get('/language/{locale}', [LanguageController::class, 'changeLanguage'])->name('language.change');
