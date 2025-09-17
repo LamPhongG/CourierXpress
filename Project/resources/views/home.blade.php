@@ -95,6 +95,25 @@
     color: #dbeafe; /* More visible blue text */
 }
 
+.home-bg {
+    background-image: url("{{ asset('images/1.jpg') }}");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.home-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Lớp phủ màu đen mờ */
+    z-index: 1;
+}
+
 </style>
 
 <!-- Background with cyberpunk delivery truck -->
@@ -120,6 +139,7 @@
     
     <!-- Content wrapper -->
     <div class="relative z-10 flex flex-col items-center justify-center min-h-screen pt-6 px-4">
+        
         <div class="text-center mb-12">
             <h1 class="text-6xl font-medium text-orange-500 mb-6">
                CourierXpress

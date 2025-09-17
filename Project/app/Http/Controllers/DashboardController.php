@@ -6,9 +6,34 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class DashboardController extends Controller
 {
+    public function index()
+    {
+        // Redirect based on user role
+        if (Auth::check()) {
+            $user = Auth::user();
+            
+            switch ($user->role) {
+                case 'admin':
+                    return redirect()->route('admin.dashboard');
+                case 'agent':
+                    return redirect()->route('agent.dashboard');
+                case 'shipper':
+                    return redirect()->route('shipper.dashboard');
+                case 'user':
+                default:
+                    return redirect()->route('user.dashboard');
+            }
+        }
+        
+        // If not authenticated, redirect to login
+        return redirect()->route('login');
+    }
+
     public function adminDashboard()
     {
         try {
@@ -26,7 +51,7 @@ class DashboardController extends Controller
             ));
         } catch (\Exception $e) {
             // Nếu có lỗi, sử dụng giá trị mặc định
-            \Log::error('Admin Dashboard error: ' . $e->getMessage());
+            Log::error('Admin Dashboard error: ' . $e->getMessage());
             
             return view('admin.dashboard', [
                 'totalUsers' => 0,
@@ -40,7 +65,7 @@ class DashboardController extends Controller
     public function userDashboard()
     {
         try {
-            $user = auth()->user();
+            $user = Auth::user();
             
             if (!$user || $user->role !== 'user') {
                 return redirect('/login');
@@ -65,7 +90,7 @@ class DashboardController extends Controller
                 'totalOrders', 'pendingOrders', 'inTransitOrders', 'completedOrders', 'totalSpent', 'recentOrders'
             ));
         } catch (\Exception $e) {
-            \Log::error('User Dashboard error: ' . $e->getMessage());
+            Log::error('User Dashboard error: ' . $e->getMessage());
             return view('user.dashboard', [
                 'totalOrders' => 0,
                 'pendingOrders' => 0,
@@ -93,11 +118,11 @@ class DashboardController extends Controller
     public function getUserStats()
     {
         try {
-            $user = auth()->user();
-            \Log::info('User stats request - User ID: ' . ($user ? $user->id : 'null') . ', Role: ' . ($user ? $user->role : 'null'));
+            $user = Auth::user();
+            Log::info('User stats request - User ID: ' . ($user ? $user->id : 'null') . ', Role: ' . ($user ? $user->role : 'null'));
             
             if (!$user) {
-                \Log::warning('No authenticated user found');
+                Log::warning('No authenticated user found');
                 return response()->json([
                     'success' => false,
                     'message' => 'User not authenticated'
@@ -105,7 +130,7 @@ class DashboardController extends Controller
             }
             
             if ($user->role !== 'user') {
-                \Log::warning('User role mismatch. Expected: user, Got: ' . $user->role);
+                Log::warning('User role mismatch. Expected: user, Got: ' . $user->role);
                 return response()->json([
                     'success' => false,
                     'message' => 'Unauthorized - Invalid role'
@@ -143,14 +168,14 @@ class DashboardController extends Controller
                 ]
             ];
             
-            \Log::info('User stats data: ', $statsData);
+            Log::info('User stats data: ', $statsData);
             
             return response()->json([
                 'success' => true,
                 'data' => $statsData
             ]);
         } catch (\Exception $e) {
-            \Log::error('User stats error: ' . $e->getMessage() . ' Trace: ' . $e->getTraceAsString());
+            Log::error('User stats error: ' . $e->getMessage() . ' Trace: ' . $e->getTraceAsString());
             return response()->json([
                 'success' => false,
                 'message' => 'Error loading user statistics: ' . $e->getMessage()
@@ -161,7 +186,7 @@ class DashboardController extends Controller
     public function getUserRecentOrders()
     {
         try {
-            $user = auth()->user();
+            $user = Auth::user();
             
             if (!$user || $user->role !== 'user') {
                 return response()->json([
@@ -196,7 +221,7 @@ class DashboardController extends Controller
                 'data' => $orders
             ]);
         } catch (\Exception $e) {
-            \Log::error('User recent orders error: ' . $e->getMessage());
+            Log::error('User recent orders error: ' . $e->getMessage());
             return response()->json([
                 'success' => false,
                 'message' => 'Error loading recent orders'
@@ -207,7 +232,7 @@ class DashboardController extends Controller
     public function getShipperData()
     {
         // Get current user or default shipper data
-        $user = auth()->user();
+        $user = Auth::user();
         
         if ($user && $user->role === 'shipper') {
             return response()->json([
