@@ -31,6 +31,34 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+// Footer demo route
+Route::get('/footer-demo', function () {
+    return view('footer-demo');
+})->name('footer.demo');
+
+// Translation test route
+Route::get('/test-translation', function () {
+    return view('test-translation');
+})->name('test.translation');
+
+// Force set Vietnamese locale
+Route::get('/set-vi', function () {
+    session(['locale' => 'vi']);
+    app()->setLocale('vi');
+    return redirect()->back()->with('success', 'Đã chuyển sang tiếng Việt');
+})->name('set.vietnamese');
+
+// Test footer route
+Route::get('/test-footer', function () {
+    return view('test-footer');
+})->name('test.footer');
+
+// Shipper system status page
+Route::get('/shipper-system-ready', function () {
+    return view('shipper-system-ready');
+});
+
+// Tracking page
 Route::get('/tracking', [PageController::class, 'tracking'])->name('tracking.page');
 
 // ===== AUTHENTICATION & LANGUAGE =====

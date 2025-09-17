@@ -89,44 +89,53 @@
         </main>
 
         <!-- Footer -->
-        <footer class="bg-white border-t mt-auto">
-            <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-                <div class="text-center text-gray-500 text-sm">
-                    © 2024 CourierXpress. All rights reserved.
-                </div>
-            </div>
-        </footer>
+        @include('components.footer')
+
+        <!-- Authentication data for JavaScript -->
+        @if(auth()->check())
+        <div id="auth-data" 
+             data-user-id="{{ auth()->user()->id }}" 
+             data-user-name="{{ auth()->user()->name }}" 
+             data-user-email="{{ auth()->user()->email }}" 
+             data-user-role="{{ auth()->user()->role }}" 
+             data-user-status="{{ auth()->user()->status ?? 'active' }}"
+             style="display: none;">
+        </div>
+        @endif
 
         <!-- Common Scripts -->
         <script>
             // Laravel session authentication check and localStorage sync
-            @if(auth()->check())
-            // Store Laravel session data in localStorage for compatibility
-            const userData = {
-                id: {{ auth()->user()->id }},
-                name: "{{ auth()->user()->name }}",
-                email: "{{ auth()->user()->email }}",
-                role: "{{ auth()->user()->role }}",
-                status: "{{ auth()->user()->status ?? 'active' }}"
-            };
-            
-            localStorage.setItem('user_data', JSON.stringify(userData));
-            localStorage.setItem('auth_token', 'laravel_session_' + userData.id);
-            
-            // Update user name in header
             document.addEventListener('DOMContentLoaded', function() {
-                const userNameEl = document.getElementById('userName');
-                if (userNameEl) {
-                    userNameEl.textContent = userData.name;
+                const authDataElement = document.getElementById('auth-data');
+                
+                if (authDataElement) {
+                    // Store Laravel session data in localStorage for compatibility
+                    const userData = {
+                        id: authDataElement.getAttribute('data-user-id'),
+                        name: authDataElement.getAttribute('data-user-name'),
+                        email: authDataElement.getAttribute('data-user-email'),
+                        role: authDataElement.getAttribute('data-user-role'),
+                        status: authDataElement.getAttribute('data-user-status')
+                    };
+                    
+                    window.userData = userData;
+                    localStorage.setItem('user_data', JSON.stringify(userData));
+                    localStorage.setItem('auth_token', 'laravel_session_' + userData.id);
+                    
+                    // Update user name in header
+                    const userNameEl = document.getElementById('userName');
+                    if (userNameEl) {
+                        userNameEl.textContent = userData.name;
+                    }
+                } else {
+                    // Clear localStorage if not authenticated
+                    localStorage.removeItem('user_data');
+                    localStorage.removeItem('auth_token');
+                    // window.location.href = '/login'; // Commented out to avoid automatic redirect during development
                 }
             });
-            @else
-            // Clear localStorage if not authenticated and redirect
-            localStorage.removeItem('user_data');
-            localStorage.removeItem('auth_token');
-            window.location.href = '/login';
-            @endif
-            
+
             // Common functions
             function logout() {
                 if (confirm('Bạn có chắc muốn đăng xuất?')) {
@@ -147,7 +156,7 @@
                     const csrfToken = document.createElement('input');
                     csrfToken.type = 'hidden';
                     csrfToken.name = '_token';
-                    csrfToken.value = '{{ csrf_token() }}';
+                    csrfToken.value = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
                     form.appendChild(csrfToken);
                     document.body.appendChild(form);
                     form.submit();
@@ -156,29 +165,34 @@
 
             // Check authentication - now works with Laravel session
             function checkAuth(requiredRole = null) {
-                @if(auth()->check())
-                const user = {
-                    role: "{{ auth()->user()->role }}"
-                };
+                const authDataElement = document.getElementById('auth-data');
                 
-                if (requiredRole && user.role !== requiredRole) {
-                    // Redirect to appropriate dashboard based on actual role
-                    if (user.role === 'admin') {
-                        window.location.href = '/admin/dashboard';
-                    } else if (user.role === 'agent') {
-                        window.location.href = '/agent/dashboard';
-                    } else if (user.role === 'shipper') {
-                        window.location.href = '/shipper/dashboard';
-                    } else if (user.role === 'user') {
-                        window.location.href = '/user/dashboard';
-                    } else {
-                        window.location.href = '/login';
+                if (authDataElement) {
+                    const userRole = authDataElement.getAttribute('data-user-role');
+                    
+                    if (requiredRole && userRole !== requiredRole) {
+                        // Redirect to appropriate dashboard based on actual role
+                        switch(userRole) {
+                            case 'admin':
+                                window.location.href = '/admin/dashboard';
+                                break;
+                            case 'agent':
+                                window.location.href = '/agent/dashboard';
+                                break;
+                            case 'shipper':
+                                window.location.href = '/shipper/dashboard';
+                                break;
+                            case 'user':
+                                window.location.href = '/user/dashboard';
+                                break;
+                            default:
+                                window.location.href = '/login';
+                        }
                     }
+                } else {
+                    // Not authenticated via Laravel session
+                    window.location.href = '/login';
                 }
-                @else
-                // Not authenticated via Laravel session
-                window.location.href = '/login';
-                @endif
             }
 
             // Format currency
