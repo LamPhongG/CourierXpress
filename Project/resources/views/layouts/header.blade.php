@@ -3,10 +3,10 @@
         <div class="flex items-center justify-between h-16">
             
         <!-- Logo -->
-            <div class="flex items-center flex-shrink-0">
+            <a href="{{ url('/') }}" class="flex items-center flex-shrink-0 hover:opacity-80 transition duration-300">
                 <img src="{{ asset('images/bao.png') }}" alt="Logo" class="h-8 w-8 mr-2 brightness-0 invert">
-                <span class="text-xl font-bold">CourierXpress</span>
-            </div>
+                <span class="text-xl font-bold cyberpunk-title">CourierXpress</span>
+            </a>
 
             <!-- Center Navigation -->
             <nav class="hidden lg:flex items-center space-x-6 flex-1 justify-center">
@@ -152,55 +152,81 @@
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
-                        <span>
-                            @if(Session::get('locale', 'vi') == 'vi')
-                                Vietnam - Tiếng Việt
-                            @elseif(Session::get('locale', 'vi') == 'en')
-                                Vietnam - English
-                            @else
-                                Vietnam - हिंदी
-                            @endif
-                        </span>
+                        <span>Vietnam - Tiếng Việt</span>
                         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
                     <div class="absolute top-full right-0 mt-1 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                         <div class="py-1">
-                            <a href="{{ route('language.change', 'vi') }}" class="flex items-center px-3 py-2 text-gray-800 hover:bg-orange-50 hover:text-orange-600 text-sm {{ Session::get('locale', 'vi') == 'vi' ? 'bg-orange-50 text-orange-600' : '' }}">
+                            <a href="{{ route('language.change', 'vi') }}" class="flex items-center px-3 py-2 text-gray-800 hover:bg-orange-50 hover:text-orange-600 text-sm bg-orange-50 text-orange-600">
                                 <img src="https://flagcdn.com/w20/vn.png" alt="Vietnam" class="w-4 h-3 mr-2">
                                 <span>Vietnam - Tiếng Việt</span>
-                            </a>
-                            <a href="{{ route('language.change', 'en') }}" class="flex items-center px-3 py-2 text-gray-800 hover:bg-orange-50 hover:text-orange-600 text-sm {{ Session::get('locale', 'vi') == 'en' ? 'bg-orange-50 text-orange-600' : '' }}">
-                                <img src="https://flagcdn.com/w20/us.png" alt="English" class="w-4 h-3 mr-2">
-                                <span>Vietnam - English</span>
-                            </a>
-                            <a href="{{ route('language.change', 'hi') }}" class="flex items-center px-3 py-2 text-gray-800 hover:bg-orange-50 hover:text-orange-600 text-sm {{ Session::get('locale', 'vi') == 'hi' ? 'bg-orange-50 text-orange-600' : '' }}">
-                                <img src="https://flagcdn.com/w20/in.png" alt="Hindi" class="w-4 h-3 mr-2">
-                                <span>Vietnam - हिंदी</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
+                @guest
                 <!-- Login -->
-                <a href="{{ route('login') }}" 
+                <button onclick="openAuthModal('login')" 
                    class="flex items-center hover:text-gray-200 px-2 py-1 rounded transition duration-300 text-sm"
                    style="pointer-events: auto; cursor: pointer; z-index: 9999; position: relative;">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
                     <span>{{ __('lalamove.login') }}</span>
-                </a>
+                </button>
 
                 <!-- Sign Up -->
-                <a href="{{ route('register') }}" 
+                <button onclick="openAuthModal('register')" 
                    class="bg-white text-orange-600 font-semibold px-3 py-2 rounded-lg hover:bg-gray-100 transition duration-300 text-sm"
                    style="pointer-events: auto; cursor: pointer; z-index: 9999; position: relative;">
                     {{ __('lalamove.sign_up') }}
-                </a>
+                </button>
+                @else
+                <!-- User Menu for authenticated users -->
+                <div class="relative group">
+                    <button class="flex items-center space-x-1 text-white hover:text-gray-200 transition duration-300 px-2 py-1 rounded text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                        <span>{{ Auth::user()->name }}</span>
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="absolute top-full right-0 mt-1 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="py-1">
+                            <a href="{{ route('dashboard') }}" class="block px-4 py-2 text-gray-800 hover:bg-orange-50 hover:text-orange-600 text-sm">
+                                Dashboard
+                            </a>
+                            <form method="POST" action="{{ route('logout') }}" class="block">
+                                @csrf
+                                <button type="submit" class="w-full text-left px-4 py-2 text-gray-800 hover:bg-orange-50 hover:text-orange-600 text-sm">
+                                    Đăng xuất
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                @endguest
 
             </div>
         </div>
     </div>
 </header>
+
+<script>
+// Global function to open auth modal from header
+function openAuthModal(tab = 'login') {
+    const authModal = document.getElementById('authModal');
+    if (authModal) {
+        authModal.classList.remove('hidden');
+        // Switch to the requested tab
+        if (typeof switchTab === 'function') {
+            switchTab(tab);
+        }
+    }
+}
+</script>

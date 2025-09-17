@@ -30,10 +30,8 @@
                 <!-- Logo -->
                 <div class="flex items-center">
                     <a href="/" class="flex items-center space-x-3">
-                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                            <i class="fas fa-shipping-fast text-white"></i>
-                        </div>
-                        <span class="text-2xl font-bold text-gray-900">CourierXpress</span>
+                        <img src="{{ asset('images/bao.png') }}" alt="Logo" class="h-8 w-8 mr-2">
+                        <span class="text-2xl font-bold cyberpunk-title">CourierXpress</span>
                     </a>
                     @if(isset($role_title))
                         <span class="ml-4 text-red-600 font-medium">{{ $role_title }}</span>
@@ -53,9 +51,21 @@
                     @endif
                     
                     <span class="text-gray-700" id="userName">{{ auth()->check() ? auth()->user()->name : 'User' }}</span>
+                    
+                    <!-- JavaScript Logout Button -->
                     <button onclick="logout()" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
                         <i class="fas fa-sign-out-alt mr-2"></i>Đăng xuất
                     </button>
+                    
+                    <!-- Alternative: Direct Form Logout (for testing) -->
+                    <!-- 
+                    <form method="POST" action="/eprojectv2/CourierXpress/Project/public/logout" style="display: inline;">
+                        @csrf
+                        <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
+                            <i class="fas fa-sign-out-alt mr-2"></i>Đăng xuất (Test)
+                        </button>
+                    </form>
+                    -->
                 </div>
             </div>
         </div>
@@ -119,6 +129,12 @@
         // Common functions
         function logout() {
             if (confirm('Bạn có chắc muốn đăng xuất?')) {
+                // Show loading indicator
+                const button = event.target;
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Đang đăng xuất...';
+                button.disabled = true;
+                
                 // Clear localStorage
                 localStorage.removeItem('auth_token');
                 localStorage.removeItem('user_data');

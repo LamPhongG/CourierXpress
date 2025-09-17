@@ -92,6 +92,7 @@ class AuthenticatedSessionController extends Controller
         // Clear any stored user data
         $request->session()->forget('user_data');
 
-        return redirect('/');
+        // Redirect to home page
+        return redirect('/')->with('success', 'Đăng xuất thành công!');
     }
 }

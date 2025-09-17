@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\PageController;
@@ -182,6 +183,7 @@ Route::get('/tracking', function (Illuminate\Http\Request $request) {
 
 // Tracking API routes
 Route::post('/api/tracking', [\App\Http\Controllers\TrackingController::class, 'track'])->name('api.tracking');
+Route::post('/api/tracking/check', [\App\Http\Controllers\TrackingController::class, 'checkTracking'])->name('api.tracking.check');
 Route::get('/api/tracking/{trackingNumber}', [\App\Http\Controllers\TrackingController::class, 'getOrderTimeline']);
 
 // ===== AUTHENTICATION ROUTES =====
@@ -201,6 +203,17 @@ Route::middleware('guest')->group(function () {
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth')
     ->name('logout');
+
+// Test logout route for debugging
+Route::get('/test-logout', function () {
+    if (auth()->check()) {
+        Auth::logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+        return redirect('/')->with('success', 'Test logout successful!');
+    }
+    return redirect('/')->with('error', 'Not logged in');
+});
 
 // ===== LANGUAGE ROUTES =====
 Route::get('/language/{locale}', [LanguageController::class, 'changeLanguage'])->name('language.change');
@@ -245,6 +258,23 @@ Route::get('/cong-dong/ho-tro', [PageController::class, 'congDongHoTro'])->name(
 
 // ===== AUTHENTICATED DASHBOARD ROUTES =====
 Route::middleware(['auth'])->group(function () {
+    
+    // General dashboard route (redirects based on role)
+    Route::get('/dashboard', function () {
+        $user = auth()->user();
+        switch($user->role) {
+            case 'admin':
+                return redirect()->route('admin.dashboard');
+            case 'agent':
+                return redirect()->route('agent.dashboard');
+            case 'shipper':
+                return redirect()->route('shipper.dashboard');
+            case 'user':
+                return redirect()->route('user.dashboard');
+            default:
+                return redirect('/');
+        }
+    })->name('dashboard');
     
     // Admin Dashboard & Routes
     Route::middleware(['role:admin'])->prefix('admin')->name('admin.')->group(function () {
@@ -986,5 +1016,29 @@ if (app()->environment(['local', 'testing', 'development'])) {
                 return "<h1>Lỗi kết nối Database!</h1><p>" . $e->getMessage() . "</p><p>Vui lòng kiểm tra XAMPP MySQL đã chạy chưa.</p>";
             }
         })->name('test-db-connection');
+        
+        // Test registration route
+        Route::get('/test-register', function() {
+            try {
+                $user = \App\Models\User::create([
+                    'name' => 'Test User ' . now()->format('H:i:s'),
+                    'email' => 'test' . time() . '@example.com',
+                    'phone' => '0123' . rand(100000, 999999),
+                    'password' => \Illuminate\Support\Facades\Hash::make('password123'),
+                    'role' => 'user',
+                    'status' => 'active',
+                ]);
+                
+                return "<h1>Registration Test Success!</h1>
+                       <p>User created: {$user->name}</p>
+                       <p>Email: {$user->email}</p>
+                       <p>Phone: {$user->phone}</p>
+                       <p>ID: {$user->id}</p>
+                       <p><a href='/login'>Try logging in</a></p>";
+                       
+            } catch (\Exception $e) {
+                return "<h1>Registration Test Failed!</h1><p>" . $e->getMessage() . "</p>";
+            }
+        })->name('test-register');
     });
 }

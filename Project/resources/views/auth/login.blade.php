@@ -88,30 +88,7 @@
                         </a>
                     </p>
                 </div>
-            </form>
-            
-            <!-- Debug Section -->
-            <div class="mt-6 p-4 bg-gray-50 rounded-lg border">
-                <h4 class="text-sm font-medium text-gray-700 mb-2">🔧 Debug Tools:</h4>
-                <div class="space-y-2 text-xs">
-                    <div class="flex space-x-2">
-                        <a href="/debug-users" target="_blank" class="text-blue-600 hover:underline">Xem Users</a>
-                        <a href="/test-password" target="_blank" class="text-blue-600 hover:underline">Test Password</a>
-                        <a href="/create-test-user" target="_blank" class="text-green-600 hover:underline">Tạo Test User</a>
-                    </div>
-                    <div class="flex space-x-2">
-                        <a href="/fix-all-passwords" target="_blank" class="text-orange-600 hover:underline font-semibold">Fix All Passwords</a>
-                        <a href="/reset-all-users" target="_blank" class="text-red-600 hover:underline font-semibold">Reset All Users</a>
-                    </div>
-                    <div class="flex space-x-2">
-                        <a href="/emergency-fix-agent" target="_blank" class="text-purple-600 hover:underline font-semibold">🚨 Emergency Fix Agent</a>
-                        <a href="/test-dashboard-access" target="_blank" class="text-indigo-600 hover:underline font-semibold">🎯 Test Dashboard</a>
-                        <a href="/debug-current-user" target="_blank" class="text-cyan-600 hover:underline font-semibold">🔍 Check Current User</a>
-                    </div>
-                    <p class="text-gray-600">⚠️ Password hiện tại hiển thị dạng text thường (không mã hóa)</p>
-                    <p class="text-red-600 text-xs font-medium">🔴 Nếu gặp lỗi "password does not use Bcrypt", hãy click "Reset All Users"</p>
-                </div>
-            </div>
+            </form>   
         </div>
     </div>
 </div>

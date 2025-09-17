@@ -10,6 +10,13 @@
     </div>
 
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <!-- Success Message -->
+        @if(session('success'))
+            <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
+                <p class="text-sm text-green-600">{{ session('success') }}</p>
+            </div>
+        @endif
+        
         <div class="bg-white py-8 px-4 shadow-lg rounded-lg sm:px-10">
             <form class="space-y-6" action="{{ route('register.store') }}" method="POST">
                 @csrf
@@ -20,8 +27,12 @@
                     <div class="mt-1">
                         <input id="name" name="name" type="text" required 
                                class="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
-                               placeholder="Nhập họ và tên">
+                               placeholder="Nhập họ và tên"
+                               value="{{ old('name') }}">
                     </div>
+                    @error('name')
+                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <!-- Phone Number -->
@@ -33,8 +44,12 @@
                         </div>
                         <input id="phone" name="phone" type="tel" required 
                                class="appearance-none block w-full pl-12 pr-3 py-3 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
-                               placeholder="Nhập số điện thoại">
+                               placeholder="Nhập số điện thoại"
+                               value="{{ old('phone') }}">
                     </div>
+                    @error('phone')
+                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <!-- Email -->
@@ -43,8 +58,12 @@
                     <div class="mt-1">
                         <input id="email" name="email" type="email" required 
                                class="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
-                               placeholder="Nhập email">
+                               placeholder="Nhập email"
+                               value="{{ old('email') }}">
                     </div>
+                    @error('email')
+                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <!-- Password -->
@@ -55,6 +74,9 @@
                                class="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                placeholder="Nhập mật khẩu (tối thiểu 8 ký tự)">
                     </div>
+                    @error('password')
+                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <!-- Confirm Password -->
@@ -65,7 +87,27 @@
                                class="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                placeholder="Nhập lại mật khẩu">
                     </div>
+                    @error('password_confirmation')
+                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
                 </div>
+
+                <!-- General Errors -->
+                @if(session('error'))
+                    <div class="bg-red-50 border border-red-200 rounded-md p-4">
+                        <p class="text-sm text-red-600">{{ session('error') }}</p>
+                    </div>
+                @endif
+
+                @if($errors->any())
+                    <div class="bg-red-50 border border-red-200 rounded-md p-4">
+                        <ul class="text-sm text-red-600 list-disc list-inside">
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
                 <!-- Submit Button -->
                 <div>
