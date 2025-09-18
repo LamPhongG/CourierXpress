@@ -14,6 +14,7 @@
     <a href="/admin/orders" class="text-red-600 font-medium">Đơn hàng</a>
     <a href="/admin/agents" class="text-gray-700 hover:text-red-600">Chi nhánh</a>
     <a href="/admin/shippers" class="text-gray-700 hover:text-red-600">Shipper</a>
+    <a href="/admin/users" class="text-gray-700 hover:text-red-600">Người dùng</a>
     <a href="/admin/reports" class="text-gray-700 hover:text-red-600">Báo cáo</a>
     <a href="/admin/settings" class="text-gray-700 hover:text-red-600">Cài đặt</a>
 @endsection

@@ -7,6 +7,11 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.tailwindcss.min.js"></script>
+    
+    <!-- Pass PHP data to JavaScript -->
+    <script>
+        window.shippersData = @json($shippers ?? []);
+    </script>
 @endsection
 
 @section('navigation')
@@ -22,18 +27,11 @@
     <!-- Page Header -->
     <div class="mb-6">
         <div class="flex justify-between items-center">
-            <div>
-                <h2 class="text-3xl font-bold text-gray-900">Quản lý Shippers</h2>
-                <p class="mt-2 text-gray-600">Quản lý danh sách shippers và phân công giao hàng</p>
+            <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-orange-500">
+                <h2 class="text-3xl font-bold text-orange-600">Quản lý Shipper</h2>
+                <p class="mt-2 text-lg font-medium text-gray-700">Xem, thêm, sửa, xóa thông tin các shipper.</p>
             </div>
-            <div class="flex space-x-3">
-                <button onclick="openAddShipperModal()" class="bg-primary hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors">
-                    <i class="fas fa-plus mr-2"></i> Thêm Shipper
-                </button>
-                <button onclick="exportShippers()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors">
-                    <i class="fas fa-download mr-2"></i> Xuất Excel
-                </button>
-            </div>
+            {{-- Các nút hành động nếu có --}}
         </div>
     </div>
 
@@ -260,7 +258,10 @@
 
 @section('scripts')
 <script>
-    let shippers = [];
+    // Pass PHP data to JavaScript
+    window.shippersData = @json($shippers ?? []);
+    
+    let shippers = window.shippersData;
     let table;
 
     $(document).ready(function() {
@@ -350,16 +351,28 @@
     // Load shippers data
     async function loadShippers() {
         try {
-            const response = await fetch('/dev/test-shippers-api');
-            shippers = await response.json();
-            
-            // Update table
-            table.clear();
-            table.rows.add(shippers);
-            table.draw();
+            // If we already have data from the route, use it
+            if (shippers.length > 0) {
+                // Update table
+                table.clear();
+                table.rows.add(shippers);
+                table.draw();
 
-            // Update statistics
-            updateStats();
+                // Update statistics
+                updateStats();
+            } else {
+                // Fallback to API if no data was passed
+                const response = await fetch('/api/admin/shippers');
+                shippers = await response.json();
+                
+                // Update table
+                table.clear();
+                table.rows.add(shippers);
+                table.draw();
+
+                // Update statistics
+                updateStats();
+            }
         } catch (error) {
             console.error('Error loading shippers:', error);
             alert('Có lỗi khi tải dữ liệu. Vui lòng thử lại.');
@@ -436,6 +449,7 @@
                 method: method,
                 headers: {
                     'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
                 },
                 body: JSON.stringify(formData)
             });
@@ -457,7 +471,10 @@
 
         try {
             const response = await fetch(`/api/admin/shippers/${id}/toggle-status`, {
-                method: 'PUT'
+                method: 'PUT',
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                }
             });
 
             if (!response.ok) throw new Error('Network response was not ok');
@@ -476,7 +493,10 @@
 
         try {
             const response = await fetch(`/api/admin/shippers/${id}`, {
-                method: 'DELETE'
+                method: 'DELETE',
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                }
             });
 
             if (!response.ok) throw new Error('Network response was not ok');
