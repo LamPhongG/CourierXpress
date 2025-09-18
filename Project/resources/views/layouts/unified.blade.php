@@ -30,8 +30,8 @@
                 <!-- Logo -->
                 <div class="flex items-center">
                     <a href="/" class="flex items-center space-x-3">
-                        <img src="{{ asset('images/bao.png') }}" alt="Logo" class="h-8 w-8 mr-2">
-                        <span class="text-2xl font-bold cyberpunk-title">CourierXpress</span>
+                        <img src="{{ asset('images/baohop.png') }}" alt="Logo" class="h-12 w-18 mr-2 ml-10">
+                       
                     </a>
                     @if(isset($role_title))
                         <span class="ml-4 text-red-600 font-medium">{{ $role_title }}</span>
