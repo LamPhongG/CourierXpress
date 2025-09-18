@@ -77,13 +77,14 @@
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body style="background-color: rgb(255,255,255); display: flex; flex-direction: column; min-height: 100vh;">
     @include('layouts.header')
 
-    <main class="container mx-auto pt-20">
+    <main class="container mx-auto pt-20 flex-grow">
         @yield('content')
     </main>
 
+    @include('components.footer')
     
 </body>
 </html> 

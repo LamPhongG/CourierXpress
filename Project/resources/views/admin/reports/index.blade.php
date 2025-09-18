@@ -15,6 +15,7 @@
     <a href="/admin/orders" class="text-gray-700 hover:text-red-600">Đơn hàng</a>
     <a href="/admin/agents" class="text-gray-700 hover:text-red-600">Chi nhánh</a>
     <a href="/admin/shippers" class="text-gray-700 hover:text-red-600">Shipper</a>
+    <a href="/admin/users" class="text-gray-700 hover:text-red-600">Người dùng</a>
     <a href="/admin/reports" class="text-red-600 font-medium">Báo cáo</a>
     <a href="/admin/settings" class="text-gray-700 hover:text-red-600">Cài đặt</a>
 @endsection
@@ -23,9 +24,10 @@
     <!-- Page Header -->
     <div class="mb-6">
         <div class="flex justify-between items-center">
-            <div>
-                <h2 class="text-3xl font-bold text-gray-900">Báo cáo Thống kê</h2>
-                <p class="mt-2 text-gray-600">Theo dõi hiệu suất hoạt động và doanh thu</p>
+            {{-- Bọc tiêu đề và mô tả trong một div mới với các lớp CSS để làm nổi bật --}}
+            <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-orange-500">
+                <h2 class="text-3xl font-bold text-orange-600">Báo cáo Thống kê</h2>
+                <p class="mt-2 text-lg font-medium text-gray-700">Theo dõi hiệu suất hoạt động và doanh thu</p>
             </div>
             <div class="flex space-x-3">
                 <button onclick="exportReport()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors">

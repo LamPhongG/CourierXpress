@@ -10,6 +10,13 @@
     z-index: 9999; /* Highest priority */
 }
 
+/* Home background - white color */
+.home-bg {
+    background-color: rgb(255, 255, 255);
+    min-height: 100vh;
+    width: 100%;
+}
+
 .modal-content {
     background: #1f2937; /* Dark gray background */
     border: 1px solid #4b5563; /* Visible border */
@@ -95,6 +102,25 @@
     color: #dbeafe; /* More visible blue text */
 }
 
+.home-bg {
+    background-image: url("{{ asset('images/1.jpg') }}");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.home-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Lớp phủ màu đen mờ */
+    z-index: 1;
+}
+
 </style>
 
 <!-- Background with cyberpunk delivery truck -->
@@ -119,55 +145,49 @@
     @endif
     
     <!-- Content wrapper -->
-    <div class="relative z-10 flex flex-col items-center justify-center min-h-screen pt-6 px-4">
-        <div class="text-center mb-12">
-            <h1 class="text-6xl font-medium text-orange-500 mb-6">
-               CourierXpress
-            </h1>
-            <p class="text-2xl font-medium text-orange-300 mb-8">Giao Hàng Tương Lai</p>
-        </div>
+    <!-- Banner Section -->
+    <div class="w-full">
+        <img src="{{ asset('images/banner.jpg') }}" 
+             alt="CourierXpress Banner" 
+             class="w-full h-[500px] object-cover brightness-125 contrast-105 rounded-2xl">
+    </div>
 
-        {{-- 3 box menu with cyberpunk styling --}}<h3 class="text-2xl font-bold text-white mb-6 text-center">
-        <div class="mb-12">
-            {{-- Menu boxes removed as requested --}}
-        </div>
-
-        {{-- Enhanced tracking form --}}
-        <div>
-            <h3 class="text-2xl text-red-600 font-medium text-white mb-6 text-center">THEO DÕI ĐƠN HÀNG</h3>
-            <form id="trackingForm" class="flex shadow-2xl rounded-xl overflow-hidden">
-                @csrf
-                <input type="text" id="tracking_id" name="tracking_id" placeholder="Nhập mã theo dõi..."
-                       class="px-6 py-4 w-96 border-0 focus:outline-none focus:ring-2 focus:ring-orange-400 bg-gray-800 bg-opacity-80 text-white placeholder-gray-300 text-lg">
-                <button type="submit"
-                        class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 font-bold flex items-center justify-center hover:from-orange-400 hover:to-red-400 transition-all duration-300">
-                    <span class="text-lg text-red-600 font-medium">THEO DÕI →</span>
-                </button>
-            </form>
+    {{-- Enhanced tracking form --}}
+    <div class="flex flex-col items-center">
+        <h3 class="text-2xl text-gray-700 font-medium mb-6 text-center">THEO DÕI ĐƠN HÀNG</h3>
+        
+        <form id="trackingForm" class="flex shadow-2xl rounded-xl overflow-hidden w-[600px]">
+            @csrf
+            <input type="text" id="tracking_id" name="tracking_id" placeholder="Nhập mã theo dõi..."
+                   class="px-6 py-4 w-1/2 border-0 focus:outline-none focus:ring-2 focus:ring-orange-400 bg-gray-100 text-black placeholder-gray-500 text-lg">
             
-            <!-- Tracking Result Display -->
-            <div id="trackingResult" class="mt-4 hidden">
-                <!-- Success Result -->
-                <div id="trackingSuccess" class="bg-green-900 bg-opacity-50 border border-green-400 rounded-lg p-4 hidden relative">
-                    <button onclick="closeTrackingResult()" class="absolute top-2 right-2 text-green-200 hover:text-white text-xl font-bold">&times;</button>
-                    <h4 class="text-green-200 font-bold mb-2">✅ Tìm thấy đơn hàng!</h4>
-                    <div id="orderDetails" class="text-green-100 text-sm"></div>
-                </div>
-                
-                <!-- Error Result -->
-                <div id="trackingError" class="bg-red-900 bg-opacity-50 border border-red-400 rounded-lg p-4 hidden">
-                    <h4 class="text-red-200 font-bold mb-2">❌ Không tìm thấy đơn hàng</h4>
-                    <p class="text-red-100 text-sm">Mã vận đơn không tồn tại trong hệ thống. Vui lòng kiểm tra lại mã theo dõi.</p>
-                </div>
-                
-                <!-- Loading -->
-                <div id="trackingLoading" class="bg-blue-900 bg-opacity-50 border border-blue-400 rounded-lg p-4 hidden">
-                    <h4 class="text-blue-200 font-bold mb-2">🔍 Đang tìm kiếm...</h4>
-                    <p class="text-blue-100 text-sm">Vui lòng đợi trong giây lát...</p>
-                </div>
-            </div>
-        </div>
+            <button type="submit"
+                    class="w-1/2 bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 font-bold flex items-center justify-center hover:from-orange-400 hover:to-red-400 transition-all duration-300">
+                <span class="text-lg font-medium">THEO DÕI →</span>
+            </button>
+        </form>
+    </div>
 
+    <!-- Tracking Result Display -->
+    <div id="trackingResult" class="mt-4 hidden">
+        <!-- Success Result -->
+        <div id="trackingSuccess" class="bg-green-900 bg-opacity-50 border border-green-400 rounded-lg p-4 hidden relative">
+            <button onclick="closeTrackingResult()" class="absolute top-2 right-2 text-green-200 hover:text-white text-xl font-bold">&times;</button>
+            <h4 class="text-green-200 font-bold mb-2">✅ Tìm thấy đơn hàng!</h4>
+            <div id="orderDetails" class="text-green-100 text-sm"></div>
+        </div>
+        
+        <!-- Error Result -->
+        <div id="trackingError" class="bg-red-900 bg-opacity-50 border border-red-400 rounded-lg p-4 hidden">
+            <h4 class="text-red-200 font-bold mb-2">❌ Không tìm thấy đơn hàng</h4>
+            <p class="text-red-100 text-sm">Mã vận đơn không tồn tại trong hệ thống. Vui lòng kiểm tra lại mã theo dõi.</p>
+        </div>
+        
+        <!-- Loading -->
+        <div id="trackingLoading" class="bg-blue-900 bg-opacity-50 border border-blue-400 rounded-lg p-4 hidden">
+            <h4 class="text-blue-200 font-bold mb-2">🔍 Đang tìm kiếm...</h4>
+            <p class="text-blue-100 text-sm">Vui lòng đợi trong giây lát...</p>
+        </div>
     </div>
 </div>
 
@@ -187,8 +207,8 @@
         <!-- Login Form -->
         <div id="loginForm">
             <div class="text-center mb-6">
-                <h2 class="text-3xl text-red-600 font-medium text-white mb-2">Đăng nhập</h2>
-                <p class="text-cyan-200 text-red-600 font-medium">Đăng nhập vào tài khoản của bạn</p>
+                <h2 class="text-3xl font-medium text-white mb-2">Đăng nhập</h2>
+                <p class="text-gray-400 font-medium">Đăng nhập vào tài khoản của bạn</p>
             </div>
             
             <!-- Test Account Info -->
@@ -244,7 +264,7 @@
                 @endif
                 
                 <button type="submit" 
-                        class="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white py-3 rounded-lg text-red-600 font-medium hover:from-orange-400 hover:to-red-400 transition-all duration-300">
+                        class="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white py-3 rounded-lg font-medium hover:from-orange-400 hover:to-red-400 transition-all duration-300">
                     Đăng nhập
                 </button>
             </form>
@@ -253,8 +273,8 @@
         <!-- Register Form -->
         <div id="registerForm" class="hidden">
             <div class="text-center mb-6">
-                <h2 class="text-3xl text-red-600 font-medium text-white mb-2">Đăng ký</h2>
-                <p class="text-cyan-200 text-red-600 font-medium">Tạo tài khoản mới</p>
+                <h2 class="text-3xl font-medium text-white mb-2">Đăng ký</h2>
+                <p class="text-gray-400 font-medium">Tạo tài khoản mới</p>
             </div>
             
             <form action="{{ route('register.store') }}" method="POST" class="space-y-4">
@@ -331,7 +351,7 @@
                 @endif
                 
                 <button type="submit" 
-                        class="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-3 rounded-lg text-red-600 font-medium hover:from-green-400 hover:to-blue-400 transition-all duration-300 neon-glow cyber-glow">
+                        class="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-3 rounded-lg font-medium hover:from-green-400 hover:to-blue-400 transition-all duration-300 neon-glow cyber-glow">
                     Đăng ký
                 </button>
             </form>
@@ -527,6 +547,5 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 @endif
-
 
 @endsection

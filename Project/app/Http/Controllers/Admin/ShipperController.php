@@ -8,6 +8,7 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 class ShipperController extends Controller
 {
@@ -44,7 +45,7 @@ class ShipperController extends Controller
 
             return response()->json($shippers);
         } catch (\Exception $e) {
-            \Log::error('Admin ShipperController index error: ' . $e->getMessage());
+            Log::error('Admin ShipperController index error: ' . $e->getMessage());
             
             return response()->json([
                 'success' => false,
@@ -87,7 +88,7 @@ class ShipperController extends Controller
                 'data' => $shipper
             ], 201);
         } catch (\Exception $e) {
-            \Log::error('Admin ShipperController store error: ' . $e->getMessage());
+            Log::error('Admin ShipperController store error: ' . $e->getMessage());
             
             return response()->json([
                 'success' => false,
@@ -106,7 +107,7 @@ class ShipperController extends Controller
                 'data' => $shipper
             ]);
         } catch (\Exception $e) {
-            \Log::error('Admin ShipperController show error: ' . $e->getMessage());
+            Log::error('Admin ShipperController show error: ' . $e->getMessage());
             
             return response()->json([
                 'success' => false,
@@ -142,7 +143,7 @@ class ShipperController extends Controller
                 'data' => $shipper
             ]);
         } catch (\Exception $e) {
-            \Log::error('Admin ShipperController update error: ' . $e->getMessage());
+            Log::error('Admin ShipperController update error: ' . $e->getMessage());
             
             return response()->json([
                 'success' => false,
@@ -172,7 +173,7 @@ class ShipperController extends Controller
                 'message' => 'Xóa shipper thành công'
             ]);
         } catch (\Exception $e) {
-            \Log::error('Admin ShipperController destroy error: ' . $e->getMessage());
+            Log::error('Admin ShipperController destroy error: ' . $e->getMessage());
             
             return response()->json([
                 'success' => false,
@@ -195,7 +196,7 @@ class ShipperController extends Controller
                 'data' => $shipper
             ]);
         } catch (\Exception $e) {
-            \Log::error('Admin ShipperController toggleStatus error: ' . $e->getMessage());
+            Log::error('Admin ShipperController toggleStatus error: ' . $e->getMessage());
             
             return response()->json([
                 'success' => false,
@@ -247,7 +248,7 @@ class ShipperController extends Controller
                 ]
             ]);
         } catch (\Exception $e) {
-            \Log::error('Admin ShipperController details error: ' . $e->getMessage());
+            Log::error('Admin ShipperController details error: ' . $e->getMessage());
             
             return response()->json([
                 'success' => false,
